@@ -1,31 +1,32 @@
-name: Pull request Workflow
+name: Workflow push
 on:
   push:
 jobs:
-  test-u:
+  test-unitaire:
     runs-on: ubuntu-latest
     steps:
-      - name: récupération de java
+      - name: Récuperation du repo
         uses: actions/checkout@v2
-      - name: récupération de java
-        uses: actions/setup-java@v2
+      - name: Récuperation de java
+        uses: actions/setup-java@v2 #adopt Open JDK 11
         with:
           distribution: adopt
           java-version: 11
-        run: mvn test
+      - name: Execution des tests
+        run: mvn test #test exuecute
   build-app: #recup jar
-    needs: test-u
+    needs: test-unitaire
     runs-on: ubuntu-latest #server
     steps:
-      - name: récupération de java
-        uses: actions/checkout@v2 #recup repo
-      - name: récupération de java
-        uses: actions/setup-java@v2 #recup  adopt jdk
+      - name: Récuperation du repo
+        uses: actions/checkout@v2
+      - name: Récuperation de java
+        uses: actions/setup-java@v2 #adopt Open JDK 11
         with:
           distribution: adopt
           java-version: 11
-      - name: création du jar
-        run: mvn package # création du jar .
+      - name: Execution des tests
+        run: mvn package #test exuecute
       - name: upload du jar
         uses: actions/upload-artifact@v2   # upload jar
         with:
