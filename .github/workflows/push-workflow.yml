@@ -1,15 +1,16 @@
-name: workflow push
+name: Workflow push
 on:
   push:
 jobs:
-   test-unitaire:
-     runs-on: ubuntu-latest
-     steps:
-       - name: récupération de java
-         uses: actions/checkout@v2
-       - name: récupération de java
-         uses: actions/setup-java@v2
-         with:
-           distribution: adopt
-           java-version: 11
-         run: mvn test
+  test-unitaire:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récuperation du repo
+        uses: actions/checkout@v2
+      - name: Récuperation de java
+        uses: actions/setup-java@v2
+        with:
+          distribution: adopt
+          java-version: 11
+      - name: Execution des tests
+        run: mvn test
