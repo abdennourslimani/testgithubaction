@@ -22,6 +22,7 @@ public class EmployeController {
     public List<EmployeDTO> findAll() {
         return this.service.findAll();
     }
+        System.out.println("hello ç tous ");
 
     @GetMapping("{id}")
     public ResponseEntity<EmployeDTO> findById(@PathVariable Long id) {
