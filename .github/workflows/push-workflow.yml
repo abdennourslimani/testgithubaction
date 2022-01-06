@@ -1,6 +1,6 @@
 name: Workflow push
 on:
-  push:
+  pull_request:
 jobs:
   test-unitaire:
     runs-on: ubuntu-latest
