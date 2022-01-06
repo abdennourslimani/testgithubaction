@@ -58,4 +58,4 @@ jobs:
         with:
           context: .   #Docker file donc à la racine
           push: true #oui
-          tags: progfiler/testdemo:latest   #nom image
+          tags: adinou59/testdemo:latest   #nom image
