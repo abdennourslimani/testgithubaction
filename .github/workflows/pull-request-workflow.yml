@@ -1,10 +1,10 @@
-name: workflowpullrequest
+name: Pull request Workflow
 on:
   pull_request:
     branches:
-      - main
+      - -main
 jobs:
-  test-unitaire:
+  test-u:
     runs-on: ubuntu-latest
     steps:
       - name: récupération de java
@@ -16,7 +16,7 @@ jobs:
           java-version: 11
         run: mvn test
   build-app: #recup jar
-    needs: test-unitaire
+    needs: test-u
     runs-on: ubuntu-latest #server
     steps:
       - name: récupération de java
