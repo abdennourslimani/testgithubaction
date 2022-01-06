@@ -20,11 +20,22 @@ public class EmployeController {
 
     @GetMapping
     public List<EmployeDTO> findAll() {
+        System.out.println("hello ç tous ");
+        System.out.println("hello ç tous ");
+        System.out.println("hello ç tous ");
+        System.out.println("hello ç tous ");
+        System.out.println("hello ç tous ");
+        System.out.println("hello ç tous ");
+        System.out.println("hello ç tous ");
+        System.out.println("hello ç tous ");
+
+
         return this.service.findAll();
     }
 
     @GetMapping("{id}")
     public ResponseEntity<EmployeDTO> findById(@PathVariable Long id) {
+
         try {
             Optional<EmployeDTO> employeDTO = this.service.findById(id);
             return ResponseEntity.ok(employeDTO.get());
@@ -36,6 +47,7 @@ public class EmployeController {
     @PostMapping
     public ResponseEntity<EmployeDTO> save(@RequestBody EmployeDTO employeDTO) {
         EmployeDTO response = this.service.save(employeDTO);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
