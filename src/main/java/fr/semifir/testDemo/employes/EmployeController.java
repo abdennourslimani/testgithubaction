@@ -22,10 +22,11 @@ public class EmployeController {
     public List<EmployeDTO> findAll() {
         return this.service.findAll();
     }
-        System.out.println("hello ç tous ");
 
     @GetMapping("{id}")
     public ResponseEntity<EmployeDTO> findById(@PathVariable Long id) {
+        System.out.println("hello ç tous ");
+
         try {
             Optional<EmployeDTO> employeDTO = this.service.findById(id);
             return ResponseEntity.ok(employeDTO.get());
